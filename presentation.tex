@@ -1,0 +1,91 @@
+\documentclass{beamer}
+\usepackage[]{mdframed}
+\usepackage{graphicx}
+
+\usetheme{svnit}
+
+% Title page
+\title[Short Title]{Full Presentation Title}
+\author{Author Name}
+\institute[Institution Short Name]{Full Institution Name}
+\date{Date}
+
+\begin{document}
+
+% Title frame
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Outline frame
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+% Introduction frame
+\section{Section One}
+\sectionframe{}
+
+\subsection{Subsection One}
+\begin{frame}
+    \frametitle{Frame with bullets}
+    \begin{itemize}[<+-|alert@+>]
+        \item Point one
+        \item Point two
+        \item Point three
+    \end{itemize}
+    \only<1>{
+        Text to be displayed only when \textbf{point 1} is highlighted
+    }
+    \only<2>{
+        Text to be displayed only when \textbf{point 2} is highlighted
+    }
+    \only<3>{
+        Text to be displayed only when \textbf{point 3} is highlighted
+    }
+\end{frame}
+
+% Background frame
+\section{Section Two}
+\sectionframe{}
+
+\begin{frame}
+    \frametitle{Frame with text}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula volutpat nunc eu rutrum. Vivamus vitae lorem aliquet, volutpat ligula rhoncus, laoreet arcu. Aliquam erat volutpat. Nunc convallis tempor metus eu ultrices. Proin imperdiet risus sed nulla mattis posuere. Aliquam sollicitudin consectetur massa, laoreet eleifend dui suscipit sit amet. Pellentesque porta tincidunt magna sit amet tempor.
+\end{frame}
+
+\section{Section Three}
+\sectionframe{}
+
+\begin{frame}
+    \frametitle{Frame with mdframed (from mdframed package)}
+    \begin{mdframed}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula volutpat nunc eu rutrum. Vivamus vitae lorem aliquet, volutpat ligula rhoncus, laoreet arcu. Aliquam erat volutpat. Nunc convallis tempor metus eu ultrices. Proin imperdiet risus sed nulla mattis posuere. Aliquam sollicitudin consectetur massa, laoreet eleifend dui suscipit sit amet. Pellentesque porta tincidunt magna sit amet tempor.
+    \end{mdframed}
+    
+\end{frame}
+
+\section{Section Four}
+\sectionframe{}
+
+\begin{frame}
+    \frametitle{Frame with an Image}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula volutpat nunc eu rutrum. 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{assets/sample.jpg}
+        \caption{Sample Image}
+    \end{figure}
+\end{frame}
+
+% references frame
+\section{Bibliography}
+\begin{frame}[allowframebreaks]{Bibliography}
+	\footnotesize
+	\nocite{*}
+	\bibliographystyle{ieeetr}
+	\bibliography{References.bib}
+\end{frame}
+
+\end{document}

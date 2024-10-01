@@ -1,0 +1,122 @@
+% Specify how elements are typeset inside the frame
+\ProvidesPackage{beamerinnerthemesvnit}
+
+\backgroundsetup{
+scale=1,
+angle=0,
+opacity=0.2,
+position=current page.west,
+hshift = 3cm,
+contents={%
+{\includegraphics[height=0.8\paperheight]{Logos/logoblur.png}}}%
+}
+
+% --- Title Page ---
+\makeatletter
+\setbeamertemplate{title page}
+{
+  \vbox{}
+  \vfill
+  \begin{centering}
+      \vskip3em%
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}
+        \insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    % \vspace{-10pt}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \end{centering}
+  \vfill{}
+
+  \raisebox{1em}{\begin{tikzpicture}[remember picture,overlay]
+    \coordinate (OneOne) at (0.75\linewidth,-0.75);
+    \coordinate (OneTwo) at (1.1\linewidth,0.7);
+    \coordinate (Middle) at (1.1\linewidth, -0.75);
+    \coordinate (TwoOne) at (1.1\linewidth,0.22\linewidth);
+    \coordinate (TwoTwo) at (0.925\linewidth,-1);
+
+    \draw[svnitblue, very thick, fill=svnitblue, opacity = 0.5] (OneOne) -- (OneTwo) -- (Middle) -- (OneOne);
+    \draw[svnitblue, very thick, fill=svnitblue, opacity = 0.5] (TwoOne) -- (TwoTwo) -- (Middle) -- (TwoOne);
+
+\end{tikzpicture}
+}}
+\makeatother
+
+% --- Footer ---
+%Remove Navigation Bars
+\setbeamertemplate{footline}[frame number]{}
+% Remove Symbols
+\setbeamertemplate{navigation symbols}{}
+% Design
+\setbeamertemplate{footline}{
+\begin{tikzpicture}[remember picture,overlay]
+    \coordinate (West) at (0,0.7);
+    \coordinate (East) at (\textwidth,0.7);
+
+    \draw[svnitblue, very thick] (West) -- (East);
+
+\end{tikzpicture}}
+
+% --- Header ---
+\setbeamertemplate{frametitle}{
+
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.75ex,dp=1.375ex]{frametitle}
+        \hspace*{3.5ex}\insertframetitle \hfill {\small\insertframenumber} \hspace*{1ex}
+    \end{beamercolorbox}
+    
+    \par
+    
+    \begin{tikzpicture}[remember picture,overlay]
+    
+    \coordinate (LeftEnd) at (-1, 0.3);
+    \coordinate (LeftEndUnder) at (-1, 0);
+    \coordinate (RightEnd) at (3,0.3);
+    \coordinate (RightEndUnder) at (3,0);
+    \draw[svnitblue, thick, fill=svnitblue, opacity=0.75] (LeftEnd)--(RightEnd)-- (RightEndUnder) -- (LeftEndUnder) -- (LeftEnd);
+
+    \coordinate (RightEnd) at (\paperwidth, 0.3);
+    \coordinate (PreRightEnd) at (10, 0.3);
+    \draw[svnitblue,thick] (RightEnd) -- (PreRightEnd);
+
+    \coordinate (topLeft) at (-0.75, 1.5);
+    \coordinate (topRight) at (-0.45, 1.5);
+    \coordinate (bottomLeft) at (-0.75, -\paperheight);
+    \coordinate (bottomRight) at (-0.45, -\paperheight);
+    
+    \draw[svnitblue, very thick, fill=svnitblue, opacity = 0.3] (topLeft) -- (bottomLeft) -- (bottomRight) -- (topRight) -- (topLeft);
+
+    \end{tikzpicture}
+
+    
+}
+
+\newcommand{\sectionframe}{
+  \begin{frame}[plain]
+    \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\expandafter\MakeUppercase{\insertsectionhead}\par%
+    \color{svnitblue}\noindent\rule{10cm}{1pt} \\
+  \end{beamercolorbox}
+  \vfill
+\end{frame}
+}
+
+% --- Table of Content ---
+% Might modify later (next version)
+
+% --- Sidebar of Content ---
+% Might add later (next version)
